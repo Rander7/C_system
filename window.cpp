@@ -302,22 +302,22 @@ void Window::messageLoop()
 			}
 			else if (c61->state(msg))
 			{
-				MessageBox(GetHWnd(), "请在控制台输入一个奇数n，程序将输出对应的漏斗形状", "操作提示", MB_OK);
+				MessageBox(GetHWnd(), "系统将用随机函数rand()得到1~100之间的整数，存到二维数组中并找出鞍点", "操作提示", MB_OK);
 				f.p61();
 			}
 			else if (c62->state(msg))
 			{
-				MessageBox(GetHWnd(), "请在控制台输入一个奇数n，程序将输出对应的漏斗形状", "操作提示", MB_OK);
+				MessageBox(GetHWnd(), "输入10个学生的姓名，系统将对其进行冒泡和选择排序", "操作提示", MB_OK);
 				f.p62();
 			}
 			else if (c63->state(msg))
 			{
-				MessageBox(GetHWnd(), "请在控制台输入一个奇数n，程序将输出对应的漏斗形状", "操作提示", MB_OK);
+				MessageBox(GetHWnd(), "程序实现将字符串2中从第m个位置开始的n个字符连接到字符串1的后面", "操作提示", MB_OK);
 				f.p63();
 			}
 			else if (c64->state(msg))
 			{
-				MessageBox(GetHWnd(), "请在控制台输入一个奇数n，程序将输出对应的漏斗形状", "操作提示", MB_OK);
+				MessageBox(GetHWnd(), "程序使用随机函数rand()得到10个1~100之间的各不相同的整数，请在控制台输入一个数，程序将用折半查找插入到数组中", "操作提示", MB_OK);
 				f.p64();
 			}
 			break;
@@ -328,22 +328,22 @@ void Window::messageLoop()
 			}
 			else if (c71->state(msg))
 			{
-				MessageBox(GetHWnd(), "请在控制台输入一个奇数n，程序将输出对应的漏斗形状", "操作提示", MB_OK);
+				MessageBox(GetHWnd(), "程序将用递归方法求n阶勒让德多项式的值", "操作提示", MB_OK);
 				f.p71();
 			}
 			else if (c72->state(msg))
 			{
-				MessageBox(GetHWnd(), "请在控制台输入一个奇数n，程序将输出对应的漏斗形状", "操作提示", MB_OK);
+				MessageBox(GetHWnd(), "程序求出数组a[3][4]的周边元素的和", "操作提示", MB_OK);
 				f.p72();
 			}
 			else if (c73->state(msg))
 			{
-				MessageBox(GetHWnd(), "请在控制台输入一个奇数n，程序将输出对应的漏斗形状", "操作提示", MB_OK);
+				MessageBox(GetHWnd(), "程序将分别完成二进制、八进制、十六进制向十进制的转换状", "操作提示", MB_OK);
 				f.p73();
 			}
 			else if (c74->state(msg))
 			{
-				MessageBox(GetHWnd(), "请在控制台输入一个奇数n，程序将输出对应的漏斗形状", "操作提示", MB_OK);
+				MessageBox(GetHWnd(), "请在控制台输入一个数n，程序将输出由n个*组成的正方形", "操作提示", MB_OK);
 				f.p74();
 			}
 			break;
@@ -354,22 +354,22 @@ void Window::messageLoop()
 			}
 			else if (c81->state(msg))
 			{
-				MessageBox(GetHWnd(), "请在控制台输入一个奇数n，程序将输出对应的漏斗形状", "操作提示", MB_OK);
+				MessageBox(GetHWnd(), "程序将实现将两个字符串相连，将一个字符串复制到另一个字符串中去，比较两个字符串的大小。", "操作提示", MB_OK);
 				f.p81();
 			}
 			else if (c82->state(msg))
 			{
-				MessageBox(GetHWnd(), "请在控制台输入一个奇数n，程序将输出对应的漏斗形状", "操作提示", MB_OK);
+				MessageBox(GetHWnd(), "在控制台输入一串字符，程序将实现统计该字符型数组中字母、数字、空格及其它字符个数", "操作提示", MB_OK);
 				f.p82();
 			}
 			else if (c83->state(msg))
 			{
-				MessageBox(GetHWnd(), "请在控制台输入一个奇数n，程序将输出对应的漏斗形状", "操作提示", MB_OK);
+				MessageBox(GetHWnd(), "请在控制台输入请输入十个学生的5门课成绩，程序将实现输出所有学生的个人平均分和课程平均分以及最高分对应的学生名和课程名，平均分方差", "操作提示", MB_OK);
 				f.p83();
 			}
 			else if (c84->state(msg))
 			{
-				MessageBox(GetHWnd(), "请在控制台输入一个奇数n，程序将输出对应的漏斗形状", "操作提示", MB_OK);
+				MessageBox(GetHWnd(), "请在控制台输入编号和名称，程序将使用编号进行升序排序，并且用户可以使用查找找出想查找编号的信息", "操作提示", MB_OK);
 				f.p84();
 			}
 			break;

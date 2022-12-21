@@ -32,7 +32,6 @@ void function::p13()
 void function::p14()
 {
 	system("cls");
-	cin.ignore(1024, '\n');
 	char a, b;
 	cin >> a;
 	while (1)
@@ -46,12 +45,12 @@ void function::p14()
 	}
 	b = a - 32;
 	cout << "转换后的大写字母为:" << b << endl;
+	cin.ignore(1024, '\n');
 }
 
 void function::p15()
 {
 	system("cls");
-	cin.ignore(1024, '\n');
 	char a, b;
 	cin >> a;
 	while (1)
@@ -65,12 +64,12 @@ void function::p15()
 	}
 	b = a + 32;
 	cout << "转换后的小写字母为:" << b << endl;
+	cin.ignore(1024, '\n');
 }
 
 void function::p16()
 {
 	system("cls");
-	cin.ignore(1024, '\n');
 	int a = 9;
 	char b;
 	cout << "这是数值型的" << a << endl;
@@ -90,7 +89,21 @@ void function::p21()
 	printf("逆序输出:%d%d%d%d\n", n4, n3, n2, n1);
 	if (n4 == 0) {
 		printf("逆序后这种情况首位是0，我们排除了0再输出:\n");
-		printf("排除首位是0的逆序输出:%d%d%d", n3, n2, n1);
+		if (n3 == 0)
+		{
+			if (n2 == 0)
+			{
+				printf("排除首位是0的逆序输出:%d",n1);
+			}
+			else
+			{
+				printf("排除首位是0的逆序输出:%d%d", n2, n1);
+			}
+		}
+		else
+		{
+			printf("排除首位是0的逆序输出:%d%d%d", n3, n2, n1);
+		}
 	}
 }
 
@@ -267,7 +280,7 @@ void function::p34()
 	{
 		cout << array[i] << " ";
 	}
-cin.ignore(1024,'\n');
+	cin.ignore(1024,'\n');
 }
 
 int function::is_prime(int num)
@@ -528,7 +541,6 @@ void function::p52()
 void function::p53()
 {
 	system("cls");
-	cin.ignore(1024, '\n');
 	char* s;
 	int nums = 0;
 	int letters = 0;
@@ -557,6 +569,7 @@ void function::p53()
 	cout << "字符数是:" << letters << endl;
 	cout << "空格数是:" << spaces << endl;
 	cout << "其他字符数是:" << others << endl;
+	cin.ignore(1024, '\n');
 }
 
 void function::shellsSort(int *arr, int len)
@@ -634,71 +647,648 @@ void function::p54()
 void function::p61()
 {
 	system("cls");
+	srand(time(0));
+	int arr[3][4];
+	memset(arr, 0, sizeof(arr));
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			arr[i][j] = rand() % 100 + 1;
+		}
+	}
+	cout << "先打印展示随机二维数组" << endl;
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			cout << arr[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	int arr_r[5];
+	int arr_c[5];
+	memset(arr_r, -1, sizeof(arr_r));
+	memset(arr_c, -1, sizeof(arr_c));
+	for (int i = 0; i < 3; i++)
+	{
+		int max_r = arr[i][0];
+		for (int j = 0; j < 4; j++)
+		{
+			if (arr[i][j] > max_r)
+			{
+				max_r = arr[i][j];
+			}
+		}
+		arr_r[i] = max_r;
+	}
+
+	for (int j = 0; j < 4; j++)
+	{
+		int min_c = arr[0][j];
+		for (int i = 0; i < 3; i++)
+		{
+			if (arr[i][j] < min_c)
+			{
+				min_c = arr[i][j];
+			}
+		}
+		arr_c[j] = min_c;
+	}
+
+	int count = 0;
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			if ((arr[i][j] == arr_r[i]) && (arr[i][j] == arr_c[j]))
+			{
+				cout << "第" << i + 1 << "行，第" << j + 1 << "列是鞍点" << endl;
+				count++;
+			}
+		}
+	}
+
+	if (count == 0)
+	{
+		cout << "没有鞍点" << endl;
+	}
 
 }
+
+
+
+void function::Bubble(char stu[10][20])
+{
+	int i, j;
+	for (i = 0; i < 10; i++)
+	{
+		for (j = i + 1; j < 10; j++)
+		{
+			if (strcmp(stu[i], stu[j]) > 0)
+			{
+				char temp[20];
+				strcpy(temp, stu[i]);
+				strcpy(stu[i], stu[j]);
+				strcpy(stu[j], temp);
+			}
+		}
+	}
+	cout << "现在打印排序后的学生姓名" << endl;
+	for (int i = 0; i < 10; i++)
+	{
+		cout << stu[i] << endl;
+	}
+}
+
+void function::Selection(char stu[10][20])
+{
+	int i, j;
+	for (i = 0; i < 10; i++)
+	{
+		int k = i;
+		for (j = i + 1; j < 10; j++)
+		{
+			if (strcmp(stu[j], stu[k]) < 0)
+			{
+				k = j;
+			}
+			if (k != i)
+			{
+				char temp[20];
+				strcpy(temp, stu[i]);
+				strcpy(stu[i], stu[k]);
+				strcpy(stu[k], temp);
+			}
+		}
+	}
+	cout << "现在打印排序后的学生姓名" << endl;
+	for (int i = 0; i < 10; i++)
+	{
+		cout << stu[i] << endl;
+	}
+}
+
 
 void function::p62()
 {
 	system("cls");
-
+	char stu[10][20];
+	int i;
+	char ch;
+	for (i = 0; i < 10; i++)
+	{
+		cin >> stu[i];
+	}
+	cout << "do you want to use bubble sort or select sort?('1-bubble','2-selection')";
+	cin >> ch;
+	switch (ch)
+	{
+	case '1':
+		Bubble(stu);
+		break;
+	case '2':
+		Selection(stu);
+		break;
+	default:
+		break;
+	}
+	cin.ignore(1024, '\n');
 }
 
 void function::p63()
 {
 	system("cls");
+	cout << "please enter two string" << endl;
+	char s1[20];
+    cin>>s1;
+    char s2[20];
+    cin>>s2;
+    int m,n;
+    cin>>m>>n;
+    int len=strlen(s1);
+    for(int i=len;i<len+n;i++)
+    {
+        s1[i]=s2[m-1+i-len];
+    }
+    for(int i=0;i<len+n;i++)
+    {
+        cout<<s1[i];
+    }
+}
 
+void function::insert(int* arr, int pos, int num)
+{
+	for (int i = 10; i > pos + 1; i--)
+	{
+		arr[i] = arr[i - 1];
+	}
+	arr[pos + 1] = num;
+}
+
+void function::halfsearch(int* arr, int num)
+{
+	int left = 0;
+	int right = 9;
+	int mid = 0;
+	int flag = 0;
+	while (left <= right)
+	{
+		mid = (left + right) / 2;
+		if (num < arr[mid])
+		{
+			right = mid - 1;
+		}
+		else if (num > arr[mid])
+		{
+			left = mid + 1;
+		}
+		else
+		{
+			insert(arr, mid, num);
+			flag = 1;
+			break;
+		}
+	}
+	if (flag == 0)
+	{
+		insert(arr, right, num);
+	}
 }
 
 void function::p64()
 {
 	system("cls");
+	srand(time(0));
+	int arr[11];
+	memset(arr, -1, sizeof(arr));
+	for (int i = 0; i < 10; i++)           //保证前十个元素没有相同的
+	{
+		int temp = rand() % 100 + 1;
+		for (int j = 0; j < i; j++)
+		{
+			if (temp == arr[j])
+			{
+				temp = rand() % 100 + 1;
+				j = 0;
+			}
+		}
+		arr[i] = temp;
+	}
+	cout << "输出随机数列" << endl;
+	for (int i = 0; i < 10; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+	shellsSort(arr, 10);
+	cout << "输出排序后的随机数列" << endl;
+	for (int i = 0; i < 10; i++)
+	{
+		cout << arr[i] << " ";
+	}
+	cout << endl;
+	cout << "请输入要插入的数字" << endl;
+	int num = 0;
+	cin >> num;
+	halfsearch(arr, num);
+	for (int i = 0; i < 11; i++)
+	{
+		cout << arr[i] << " ";
+	}
 
+}
+
+int function::fprint(int n, int x)
+{
+	if (n == 0)
+		return 1;
+	else if (n == 1)
+		return x;
+	else
+		return ((2 * n - 1) * x - fprint(n - 1, x) - (n - 1) * fprint(n - 2, x)) / n;
 }
 
 void function::p71()
 {
 	system("cls");
+	int n, x;
+	scanf("%d %d", &n, &x);
+	printf("%d", fprint(n, x));
+}
 
+int function::Sum(int a[][4], int sum)
+{
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			scanf("%d", &a[i][j]);
+			if (i == 0 || i == 2 || j == 0 || j == 3)
+				sum = sum + a[i][j];
+		}
+	}
+	return sum;
 }
 
 void function::p72()
 {
 	system("cls");
+	int sum = 0;
+	int a[3][4];
+	printf("%d", Sum(a, sum));
+}
 
+int function::F(char * a, int n)
+{
+	int sum = 0;
+	for (int i = strlen(a) - 1; i >= 0; i--)
+	{
+		if (a[i] >= '0' && a[i] <= '9')
+			sum += (a[i] - '0') * (int)pow(n, strlen(a) - i - 1);
+		else if (a[i] >= 'A' && a[i] <= 'F')
+			sum += (a[i] - 'A' + 10) * (int)pow(n, strlen(a) - i - 1);
+		else if (a[i] >= 'a' && a[i] <= 'f')
+			sum += (a[i] - 'a' + 10) * (int)pow(n, strlen(a) - i - 1);
+		else
+		{
+			printf("输入错误！");
+		}
+	}
+	return sum;
 }
 
 void function::p73()
 {
 	system("cls");
-
+	int n;
+	char a[10];
+	printf("请输入要转换的进制(2,8,16)：");
+	scanf("%d", &n);
+	getchar();
+	printf("请输入要转换的数字：");
+	scanf("%s", &a);
+	printf("%d", F(a, n));
+	cin.ignore(1024, '\n');
 }
 
 void function::p74()
 {
 	system("cls");
+	int n;
+	scanf("%d", &n);
+	for (int i = 1; i <= n; i++)
+	{
+		for (int j = 1; j <= n; j++)
+			printf("* ");
+		printf("\n");
+	}
+}
 
+void function::strcat_(char str1[], char str2[])
+{
+	strcat(str1, str2);
+	printf("相连后的结果为:");
+	puts(str1);
+	return;
+}
+
+void function::strcmp_(char str1[], char str2[])
+{
+	if (strcmp(str1, str2) > 0)
+	{
+		printf("第一个字符串大于第二个字符串!\n");
+	}
+	else if (strcmp(str1, str2) == 0)
+	{
+		printf("两个字符串相等！\n");
+	}
+	else
+	{
+		printf("第一个字符串小于第二个字符串!\n");
+	}
+	return;
+}
+
+void function::strcpy_(char str1[], char str2[])
+{
+	strcpy(str1, str2);
+	printf("复制后的结果为:");
+	puts(str1);
+	return;
 }
 
 void function::p81()
 {
 	system("cls");
+	printf("请输入两个字符串,长度小于10\n");
+	char str1[10], str2[10];
+	scanf("%s", str1);
+	scanf("%s", str2);
+	printf("1、将两个字符串相连\n2、将一个字符串复制到另一个字符串中去\n3、比较两个字符串的大小\n");
+	printf("请输入:\n");
+	int want;
+	scanf("%d", &want);
+	switch (want)
+	{
+	case 1:
+		strcat_(str1, str2);
+		break;
+	case 2:
+		strcpy_(str1, str2);
+		break;
+	case 3:
+		strcmp_(str1, str2);
+		break;
+	}
+	cin.ignore(1024, '\n');
+}
 
+void function::Sum_char(char str[], int length_str)
+{
+	int dig = 0, letter = 0, character = 0, space = 0;
+	for (int i = 0; i < length_str; i++)
+	{
+		if (str[i] == 32)
+		{
+			space++;
+		}
+		else if (str[i] < '0')
+		{
+			character++;
+		}
+		else if (str[i] <= '9')
+		{
+			dig++;
+		}
+		else if (str[i] < 'A')
+		{
+			character++;
+		}
+		else if (str[i] <= 'Z')
+		{
+			letter++;
+		}
+		else if (str[i] < 'a')
+		{
+			character++;
+		}
+		else if (str[i] <= 'z')
+		{
+			letter++;
+		}
+		else
+		{
+			character++;
+		}
+	}
+	printf("统计结果如下:\n");
+	printf("字母个数为:%d\n", letter);
+	printf("数字个数如下:%d\n", dig);
+	printf("空格个数如下:%d\n", space);
+	printf("其它字符个数如下:%d\n", character);
+	return;
 }
 
 void function::p82()
 {
 	system("cls");
+	char str[100];
+	printf("请输入:");
+	gets_s(str);
+	Sum_char(str, strlen(str));
+	//cin.ignore(1024, '\n');
+	return;
+}
 
+int score[10][5];
+int student_avg[10];
+int avg[5];
+
+void function::avg_score()
+{
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			student_avg[i] += score[i][j];
+		}
+		student_avg[i] = student_avg[i] / 5;
+	}
+}
+
+void function::avg_()
+{
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			avg[i] += score[j][i];
+		}
+		avg[i] = avg[i] / 10;
+	}
+}
+
+void function::highest()
+{
+	int student, lesson;
+	int max = score[0][0];
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			if (score[i][j] > max)
+			{
+				max = score[i][j];
+				student = i;
+				lesson = j;
+			}
+		}
+	}
+	printf("学生%d,课程%d", student, lesson);
+}
+
+double function::variance()
+{
+	int temp = 0;
+	for (int i = 0; i < 10; i++)
+	{
+		temp += pow(student_avg[i], 2);
+	}
+	return temp / 10 - pow((temp / 10), 2);
 }
 
 void function::p83()
 {
 	system("cls");
+	printf("请输入十个学生的5门课成绩\n");
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			scanf("%d", &score[i][j]);
+		}
+	}
+	printf("每个学生平均分如下\n");
+	avg_score();
+	for (int i = 0; i < 10; i++)
+	{
+		printf("%5d", student_avg[i]);
+	}
+	printf("\n每门课平均分如下\n");
+	avg_();
+	for (int i = 0; i < 5; i++)
+	{
+		printf("%5d", avg[i]);
+	}
+	printf("\n最高分的分数对应的学生和课程是\n");
+	highest();
+	printf("平均分方差是:%lf", variance());
+	printf("请输入十个学生的5门课成绩\n");
+	for(int i=0;i<10;i++)
+    {
+		for(int j=0;j<5;j++)
+        {
+			scanf("%d",&score[i][j]);
+		}
+	}
+	printf("每个学生平均分如下\n");
+	avg_score();
+	for(int i=0;i<10;i++)
+    {
+        printf("%5d",student_avg[i]);
+    }
+	printf("\n每门课平均分如下\n");
+	avg_();
+	for(int i=0;i<5;i++)
+    {
+        printf("%5d",avg[i]);
+    }
+	printf("\n最高分的分数对应的学生和课程是\n");
+	highest();
+	printf("平均分方差是:%lf",variance());
+	system("cls");
+}
 
+void function::input(int num[], char name[N][8])
+{
+	int i;
+	for (i = 0; i < N; i++)
+	{
+		printf("请输入编号: ");
+		scanf("%d", &num[i]);
+		printf("请输入名称: ");
+		getchar();
+		scanf("%s", name[i]);
+	}
+}
+
+void function::sort(int num[], char name[N][8])
+{
+	int i, j, min, templ;
+	char temp2[8];
+	for (i = 0; i < N - 1; i++)
+	{
+		min = i;
+		for (j = i; j < N; j++)
+			if (num[min] > num[j])  min = j;
+		templ = num[i];
+		strcpy(temp2, name[i]);
+		num[i] = num[min];
+		strcpy(name[i], name[min]);
+		num[min] = templ;
+		strcpy(name[min], temp2);
+	}
+	printf("\n结果为:\n");
+	for (i = 0; i < N; i++)
+		printf("\n %5d%10s", num[i], name[i]);
+}
+
+void function::search(int n, int num[], char name[N][8])
+{
+	int top, bott, mid, loca, sign;
+	top = 0;
+	bott = N - 1;
+	loca = 0;
+	sign = 1;
+	if ((n < num[0]) || (n > num[N - 1]))
+		loca = -1;
+	while ((sign == 1) && (top <= bott))
+	{
+		mid = (bott + top) / 2;
+		if (n == num[mid])
+		{
+			loca = mid;
+			printf("编号为 %d , 名称为 %s.\n", n, name[loca]);
+			sign = -1;
+		}
+		else if (n < num[mid])
+			bott = mid - 1;
+		else
+			top = mid + 1;
+	}
+	if (sign == 1 || loca == -1)
+		printf("无法查询到结果\n");
 }
 
 void function::p84()
 {
 	system("cls");
-
+	int num[N], number, flag = 1, c;
+	char name[N][8];
+	input(num, name);
+	sort(num, name);
+	while (flag == 1)
+	{
+		printf("\n请输入想要查询的编号:");
+		scanf("%d", &number);
+		search(number, num, name);
+		printf("是否继续查询(Y/N)?");
+		getchar();
+		c = getchar();
+		if (c == 'N' || c == 'n')
+			flag = 0;
+	}
+	cin.ignore(1024, '\n');
 }
