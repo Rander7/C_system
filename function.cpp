@@ -45,7 +45,7 @@ void function::p14()
 	}
 	b = a - 32;
 	cout << "转换后的大写字母为:" << b << endl;
-	cin.ignore(1024, '\n');
+	cin.clear();
 }
 
 void function::p15()
@@ -64,7 +64,7 @@ void function::p15()
 	}
 	b = a + 32;
 	cout << "转换后的小写字母为:" << b << endl;
-	cin.ignore(1024, '\n');
+	cin.clear();
 }
 
 void function::p16()
@@ -217,6 +217,7 @@ void function::p32()
 			break;
 		}
 	}
+	cin.clear();
 }
 
 void function::p33()
@@ -224,7 +225,8 @@ void function::p33()
 	system("cls");
 	char ch;
 	int a, b;
-	scanf("%d%c%d", &a, &ch, &b);
+	printf("please input a arithmetic expression\n");
+	cin >> a >> ch >> b;
 	switch (ch)
 	{
 	case '+':
@@ -265,6 +267,7 @@ void function::p34()
 	system("cls");
 	vector<int>array;
 	int number;
+	printf("please input a array,the function will sort it\n");
 	while (1)
 	{
 		cin >> number;
@@ -280,7 +283,7 @@ void function::p34()
 	{
 		cout << array[i] << " ";
 	}
-	cin.ignore(1024,'\n');
+	cin.clear();
 }
 
 int function::is_prime(int num)
@@ -378,7 +381,7 @@ void function::p44()
 	}
 	for (int i = 0; i < 6; i++)
 	{
-		cout << "第" << i << "位同学平均成绩是: " <<arr[i]<< endl;
+		cout << "第" << i +1<< "位同学平均成绩是: " <<arr[i]<< endl;
 	}
 }
 
@@ -569,7 +572,7 @@ void function::p53()
 	cout << "字符数是:" << letters << endl;
 	cout << "空格数是:" << spaces << endl;
 	cout << "其他字符数是:" << others << endl;
-	cin.ignore(1024, '\n');
+	cin.clear();
 }
 
 void function::shellsSort(int *arr, int len)
@@ -794,7 +797,7 @@ void function::p62()
 	default:
 		break;
 	}
-	cin.ignore(1024, '\n');
+	cin.clear();
 }
 
 void function::p63()
@@ -1098,7 +1101,7 @@ void function::p82()
 	printf("请输入:");
 	gets_s(str);
 	Sum_char(str, strlen(str));
-	//cin.ignore(1024, '\n');
+	cin.clear();
 	return;
 }
 
